@@ -11,6 +11,7 @@ URL:		http://freedesktop.org/wiki/Software/libdlo
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	libusb-compat-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,11 +75,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libdlo.so*
 %doc AUTHORS COPYING Guide-v104.pdf README
+%attr(755,root,root) %{_libdir}/libdlo.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libdlo.so.0
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libdlo.so
 %{_libdir}/libdlo.la
 %{_includedir}/libdlo.h
 
