@@ -46,7 +46,7 @@ Statyczna biblioteka libdlo.
 
 %prep
 %setup -q
-
+%{__sed} -i -e 's/${libdir_name}/${libdir}/g' configure.ac
 cp ~/rpm/BUILD/libdlo-0.1.0/src/libdlo.h ~/rpm/BUILD/libdlo-0.1.0/test/
 
 %build
@@ -55,10 +55,9 @@ cp ~/rpm/BUILD/libdlo-0.1.0/src/libdlo.h ~/rpm/BUILD/libdlo-0.1.0/test/
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	libdir_name=%{_lib}
+%configure
 
-%{__make} libdir_name=%{_lib}
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
