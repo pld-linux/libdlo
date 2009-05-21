@@ -7,7 +7,7 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://people.freedesktop.org/~berniet/%{name}-%{version}.tar.gz
 # Source0-md5:	1b8b20928a14010a3a4c2d507268d33c
-URL:		http://libdlo.freedesktop.org/
+URL:		http://freedesktop.org/wiki/Software/libdlo
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -47,7 +47,7 @@ Statyczna biblioteka libdlo.
 %prep
 %setup -q
 %{__sed} -i -e 's/${libdir_name}/${libdir}/g' configure.ac
-cp ~/rpm/BUILD/libdlo-0.1.0/src/libdlo.h ~/rpm/BUILD/libdlo-0.1.0/test/
+%{__sed} -i -e 's/libdlo.h/..\/src\/libdlo.h/g' test/test1.c
 
 %build
 %{__libtoolize}
