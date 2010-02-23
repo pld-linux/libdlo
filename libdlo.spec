@@ -1,12 +1,12 @@
 Summary:	DisplayLink library
 Summary(pl.UTF-8):	Biblioteka DisplayLink
 Name:		libdlo
-Version:	0.1.0
+Version:	0.1.2
 Release:	0.1
 License:	LGPL
 Group:		Libraries
 Source0:	http://people.freedesktop.org/~berniet/%{name}-%{version}.tar.gz
-# Source0-md5:	1b8b20928a14010a3a4c2d507268d33c
+# Source0-md5:	a7bb8ec3bdb6ce1d702794de3e4f2112
 URL:		http://freedesktop.org/wiki/Software/libdlo
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -64,8 +64,7 @@ Statyczna biblioteka libdlo.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	libdir_name=%{_lib}
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -76,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING Guide-v104.pdf README
+%attr(755,root,root) %{_bindir}/test1
 %attr(755,root,root) %{_libdir}/libdlo.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdlo.so.0
 
